@@ -1,0 +1,103 @@
+DOKUMEN SPESIFIKASI KEBUTUHAN PERANGKAT LUNAK
+SOFTWARE REQUIREMENTS SPECIFICATION (SRS)
+Aplikasi Resep Kuliner Nusantara
+ 
+Disusun Oleh :
+
+			Nama	                                    : Revanza D Rompies
+Mata Pelajaran		: Analisis Program
+Guru Bidang Studi		: Ageng Subagja, A.Md Kom
+
+
+BAB I: PENDAHULUAN
+1.1 Latar Belakang
+Indonesia memiliki keanekaragaman kuliner dari berbagai daerah yang sangat kaya akan rempah dan cita rasa khas. Namun, informasi resep tradisional sering kali tersebar di berbagai media yang tidak terstruktur atau bahkan berisiko hilang seiring waktu. Dengan kemajuan teknologi rekayasa perangkat lunak, diperlukan sebuah sistem informasi 'Aplikasi Resep Kuliner Nusantara' yang dapat mengintegrasikan, mendokumentasikan, dan menyajikan resep-resep khas Indonesia secara digital, terstruktur, serta mudah diakses oleh masyarakat luas.
+1.2 Rumusan Masalah
+•	Bagaimana mengelola data resep kuliner khas Nusantara secara terpusat, aman, dan terstruktur?
+•	Bagaimana mempermudah pengguna dalam mencari, memfilter, dan menyimpan resep makanan khas daerah tertentu?
+•	Bagaimana memfasilitasi manajemen perubahan kode program secara terstruktur menggunakan version control GitHub?
+1.3 Tujuan Penulisan Dokumen
+Dokumen Software Requirements Specification (SRS) ini disusun dengan tujuan sebagai berikut:
+•	Mengidentifikasi dan mendefinisikan seluruh kebutuhan fungsional serta non-fungsional dari Aplikasi Resep Kuliner Nusantara.
+•	Menjadi acuan teknis utama bagi pengembang (developer) dalam merancang arsitektur sistem, basis data, dan antarmuka pengguna.
+•	Menjadi dokumen verifikasi standar dalam memenuhi kriteria Penilaian Assessment Sumatif Tengah Semester di SMK Taruna Bhakti.
+BAB II: METODE PENGEMBANGAN
+2.1 Metode Pengembangan
+Metode pengembangan sistem yang diterapkan pada proyek ini adalah Agile Development Model (Scrum Framework). Pendekatan Agile dipilih karena memberikan fleksibilitas tinggi dalam merespons perubahan kebutuhan selama proses iterasi. Setiap tahapan pengembangan seperti perancangan SRS, pembuatan UI/UX, slicing antarmuka, hingga manajemen repositori GitHub dapat dibagi ke dalam beberapa sprint singkat sehingga hasil pengembangan dapat dievaluasi secara berkala.
+2.2 Jadwal Pengembangan Sistem
+				
+				
+				
+				
+				
+				
+No	Tahapan Kegiatan	M-1	M-2	M-3	M-4
+1	Analisis Kebutuhan & Penyusunan Dokumen SRS	V			
+2	Perancangan Database & Desain UI/UX		V		
+3	Pengodean Fitur Utama (Backend & Frontend)		V	V	
+4	Manajemen Repository GitHub & Branching			V	V
+5	Pengujian Sistem (Testing) & Presentasi ASTS				V
+
+BAB III: ANALISIS KEBUTUHAN SISTEM
+3.1 Nama Sistem
+Aplikasi Resep Kuliner Nusantara (Aplikasi Berbasis Web & Repository GitHub)
+3.2 Latar Belakang Sistem
+Aplikasi ini dirancang khusus untuk mendigitalisasi koleksi resep masakan khas Nusantara dari pelbagai daerah di Indonesia. Sistem menyajikan informasi komprehensif mencakup daftar bahan, bumbu halus, langkah pembuatan, hingga takaran sajian dengan antarmuka modern yang responsif.
+3.3 Ruang Lingkup
+Ruang lingkup dari pengembangan sistem ini mencakup:
+•	Deskripsi Sistem: Aplikasi web yang menyediakan pencarian resep interaktif, pemrosesan CRUD data resep oleh Admin, serta penandaan resep favorit oleh Pengguna.
+•	Manfaat Sistem: Mempermudah masyarakat melestarikan resep tradisional dan mempercepat pencarian ide memasak harian.
+3.4 Kebutuhan Fungsional
+A. Fitur Utama Sistem
+•	Autentikasi Pengguna: Fitur Login dan Registrasi untuk membedakan hak akses Admin dan Pengguna Umum.
+•	Manajemen Data Resep (CRUD): Admin dapat Menambah, Mengubah, Melihat, dan Menghapus resep.
+•	Katalog & Pencarian Resep: Filter resep berdasarkan nama masakan, daerah asal, atau bahan utama.
+•	Fitur Favorit & Bookmark: Pengguna terdaftar dapat menyimpan resep ke daftar favorit pribadi.
+B. Karakteristik Pengguna
+•	Administrator: Memiliki akses penuh mengelola data resep, kategori daerah, serta memantau data pengguna.
+•	Pengguna Umum (User): Memiliki hak akses membaca katalog, mencari resep, dan menyimpan resep favorit.
+C. Kamus Data Entitas Utama
+Nama Entitas	Atribut / Field	Keterangan
+User	id_user, nama, email, password, role	Menyimpan data otentikasi & hak akses
+Resep	id_resep, judul, asal_daerah, bahan, langkah, foto	Menyimpan seluruh informasi detail resep
+Kategori	id_kategori, nama_daerah, deskripsi	Pengelompokan resep berdasarkan wilayah
+3.5 Kebutuhan Non-Fungsional
+•	Kebutuhan Produk: Sistem harus merespons pencarian resep kurang dari 2 detik dengan antarmuka yang responsif di berbagai perangkat.
+•	Kebutuhan Organisasi: Kode sumber harus dikelola menggunakan Git/GitHub dengan konvensi commit dan struktur folder yang rapi.
+•	Kebutuhan Eksternal: Keamanan kata sandi wajib dienkripsi menggunakan metode Hashing (bcrypt).
+3.6 Batasan Sistem
+•	Aplikasi dikhususkan untuk mengelola resep masakan tradisional daerah Indonesia.
+•	Pengoperasian aplikasi memerlukan koneksi internet aktif.
+BAB IV: DEVELOPMENT
+4.1 Desain System
+Perancangan arsitektur sistem digambarkan melalui diagram pemodelan UML meliputi Use Case Diagram, Activity Diagram, dan Class Diagram:
+PERANCANGAN PEMODELAN SYSTEM (UML)
+• Use Case Diagram: Menggambarkan interaksi aktor (Admin & User) terhadap fitur sistem.
+• Activity Diagram: Menggambarkan alur aktivitas pencarian dan pengelolaan data resep.
+• Class Diagram: Menggambarkan struktur basis data dan hubungan antar entitas (User, Resep, Kategori).
+
+4.2 Struktur Repository dan Branching GitHub
+A. Struktur Folder Repositori
+ATS_MAPL/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── controllers/
+│   ├── models/
+│   └── views/
+├── config/
+├── SRS.md
+├── README.md
+└── index.js
+B. Alur Branching GitHub (Git Flow)
+Pengembangan manajemen kode pada proyek ini mengikuti strategi Git Flow berikut:
+•	main / master: Branch utama untuk kode stabil yang siap diuji/dirilis.
+•	develop: Branch integrasi fitur-fitur baru sebelum digabungkan ke main.
+•	feature/dokumen-srs: Branch pengerjaan khusus penyusunan dokumen SRS.
+•	feature/katalog-resep: Branch pengerjaan fitur tampilan dan data resep.
+BAB V: PENUTUP
+5.1 Kesimpulan
+Dokumen Software Requirements Specification (SRS) untuk Aplikasi Resep Kuliner Nusantara ini telah disusun secara rinci sesuai standar kriteria Assessment Sumatif Tengah Semester SMK Taruna Bhakti. Dengan adanya analisis kebutuhan dan perancangan yang terstruktur ini, proses pengembangan perangkat lunak serta pengelolaan repositori di GitHub dapat berjalan dengan lebih terarah, efektif, dan terukur.
+5.2 Lampiran
+•	Repository GitHub: https://github.com/username/ATS_MAPL
+•	Dokumentasi Komit Pertama: commit pertama: inisialisasi projek dan dokumen SRS
